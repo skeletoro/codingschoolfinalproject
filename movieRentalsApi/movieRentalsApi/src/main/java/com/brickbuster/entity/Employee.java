@@ -1,4 +1,4 @@
-package brickbuster.movieRentalsApi.entity;
+package com.brickbuster.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

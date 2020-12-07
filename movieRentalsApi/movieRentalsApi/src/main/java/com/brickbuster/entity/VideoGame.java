@@ -1,4 +1,4 @@
-package brickbuster.movieRentalsApi.entity;
+package com.brickbuster.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,22 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
-public class Movie {
 
-	private Long movieId;
+@Entity
+public class VideoGame {
+
+	private Long videoGameId;
 	private String title;
 	private double price;
 	private Rental rental;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getMovieId() {
-		return movieId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getVideoGameId() {
+		return videoGameId;
 	}
 
-	public void setMovieId(Long movieId) {
-		this.movieId = movieId;
+	public void setVideoGameId(Long videoGameId) {
+		this.videoGameId = videoGameId;
 	}
 
 	public String getTitle() {

@@ -1,4 +1,4 @@
-package brickbuster.movieRentalsApi.entity;
+package com.brickbuster.entity;
 
 import java.time.LocalDate;
 import java.util.Set;
