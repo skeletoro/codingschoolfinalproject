@@ -1,5 +1,9 @@
 package com.brickbuster.repository;
 
-public interface EmployeeRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.brickbuster.entity.Employee;
+
+public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 
 }
