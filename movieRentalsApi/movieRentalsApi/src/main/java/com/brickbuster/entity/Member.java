@@ -1,9 +1,12 @@
 package com.brickbuster.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Member {
@@ -12,6 +15,7 @@ public class Member {
 	private String firstName;
 	private String lastName;
 	private String membershipLevel;
+	private Set<Rental> rentals;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,6 +49,15 @@ public class Member {
 
 	public void setMembershipLevel(String membershipLevel) {
 		this.membershipLevel = membershipLevel;
+	}
+
+	@OneToMany(mappedBy = "members")
+	public Set<Rental> getRental() {
+		return rentals;
+	}
+
+	public void setRental(Set<Rental> rentals) {
+		this.rentals = rentals;
 	}
 
 }

@@ -8,11 +8,11 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>brickbuster</groupId>
-	<artifactId>movieRentalsApi</artifactId>
+	<groupId>com.Promineotech</groupId>
+	<artifactId>inventoryManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>brickbuster</name>
-	<description>a movie rental system</description>
+	<name>inventoryManagement</name>
+	<description>Demo Inventory Management Api Project</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,10 +22,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -40,11 +36,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

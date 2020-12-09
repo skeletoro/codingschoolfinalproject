@@ -1,11 +1,19 @@
 package com.brickbuster.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 
 
 @Entity
@@ -14,10 +22,12 @@ public class VideoGame {
 	private Long videoGameId;
 	private String title;
 	private double price;
-	private Rental rental;
+	
+	@JsonIgnore
+	private Set<Rental> rentals;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getVideoGameId() {
 		return videoGameId;
 	}
@@ -42,14 +52,18 @@ public class VideoGame {
 		this.price = price;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name = "rentId")
-	public Rental getRental() {
-		return rental;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "videoGame_rental",
+	   joinColumns = @JoinColumn(name = "rentalId", referencedColumnName = "videoGameId"),
+	   inverseJoinColumns = @JoinColumn(name = "videoGameId", referencedColumnName = "rentalId"))
+	public Set<Rental> getRentals() {
+		return rentals;
 	}
 
-	public void setRental(Rental rental) {
-		this.rental = rental;
+	public void setRentals(Set<Rental> rentals) {
+		this.rentals = rentals;
 	}
+	
+	
 
 }

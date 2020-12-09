@@ -1,14 +1,18 @@
 package com.brickbuster.entity;
 
 import java.time.LocalDate;
+
+
 import java.util.Set;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,15 +23,19 @@ public class Rental {
 	private LocalDate dateRented;
 	private LocalDate dateDue;
 	private double invoiceAmount;
-	
-	@JsonIgnore
 	private Set<Movie> movies;
-	
-	@JsonIgnore
 	private Set<VideoGame> videoGames;
 	
+	@JsonIgnore
+	private Member members;
+	
+	@JsonIgnore
+	private Employee employees;
+	
+	
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getrentalId() {
 		return rentalId;
 	}
@@ -60,7 +68,7 @@ public class Rental {
 		this.invoiceAmount = invoiceAmount;
 	}
 	
-	@OneToMany(mappedBy = "rental", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "rentals")
 	public Set<Movie> getMovies() {
 		return movies;
 	}
@@ -69,7 +77,7 @@ public class Rental {
 		this.movies = movies;
 	}
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "rentals")
 	public Set<VideoGame> getVideoGames() {
 		return videoGames;
 	}
@@ -77,5 +85,27 @@ public class Rental {
 	public void setVideoGames(Set<VideoGame> videoGames) {
 		this.videoGames = videoGames;
 	}
+
+	@ManyToOne
+	@JoinColumn(name = "memberId")
+	public Member getMembers() {
+		return members;
+	}
+
+	public void setMembers(Member members) {
+		this.members = members;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "employeeId")
+	public Employee getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(Employee employees) {
+		this.employees = employees;
+	}
+	
+	
 
 }
