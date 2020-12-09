@@ -1,8 +1,9 @@
 package com.brickbuster.service;
 
-import org.springframework.stereotype.Repository;
 
-@Repository
+import org.springframework.stereotype.Service;
+
+@Service
 public class MemberService {
 
 }
