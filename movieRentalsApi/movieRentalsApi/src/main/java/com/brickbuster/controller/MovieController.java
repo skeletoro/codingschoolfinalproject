@@ -1,5 +1,6 @@
 package com.brickbuster.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import com.brickbuster.service.MovieService;
 @RequestMapping("/movies")
 public class MovieController {
 
+	@Autowired
 	private MovieService service;
 
 	@RequestMapping(method = RequestMethod.POST)
