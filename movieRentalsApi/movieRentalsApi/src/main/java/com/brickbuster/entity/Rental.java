@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.brickbuster.util.RentalStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -25,6 +26,7 @@ public class Rental {
 	private double invoiceAmount;
 	private Set<Movie> movies;
 	private Set<VideoGame> videoGames;
+	private RentalStatus status;
 	
 	@JsonIgnore
 	private Member members;
@@ -104,6 +106,14 @@ public class Rental {
 
 	public void setEmployees(Employee employees) {
 		this.employees = employees;
+	}
+
+	public RentalStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(RentalStatus status) {
+		this.status = status;
 	}
 	
 	
