@@ -1,6 +1,5 @@
 package com.brickbuster.service;
 
-import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,9 +21,9 @@ public class EmployeeService {
 		return repo.save(employee);
 	}
 
-	public Optional<Employee> getEmployeeById(Long id) throws Exception {
+	public Employee getEmployeeById(Long id) throws Exception {
 		try {
-			return repo.findById(id);
+			return repo.findById(id).get();
 		} catch (Exception e) {
 			Logger.error("Exception occurred while trying to retrieve employee: " + id, e);
 			throw e;
