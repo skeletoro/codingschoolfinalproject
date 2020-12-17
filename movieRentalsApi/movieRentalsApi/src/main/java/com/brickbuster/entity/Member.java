@@ -8,13 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.brickbuster.util.MembershipLevel;
+
 @Entity
 public class Member {
 	
 	private Long memberId;
 	private String firstName;
 	private String lastName;
-	private String membershipLevel;
+	private MembershipLevel membershipLevel;
 	private Set<Rental> rentals;
 	
 	@Id
@@ -43,11 +45,11 @@ public class Member {
 		this.lastName = lastName;
 	}
 
-	public String getMembershipLevel() {
+	public MembershipLevel getMembershipLevel() {
 		return membershipLevel;
 	}
 
-	public void setMembershipLevel(String membershipLevel) {
+	public void setMembershipLevel(MembershipLevel membershipLevel) {
 		this.membershipLevel = membershipLevel;
 	}
 

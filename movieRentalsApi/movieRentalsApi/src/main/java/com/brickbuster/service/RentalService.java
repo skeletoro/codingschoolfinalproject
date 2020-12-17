@@ -11,12 +11,9 @@
  * import com.brickbuster.repository.MemberRepository; import
  * com.brickbuster.repository.MovieRepository; import
  * com.brickbuster.repository.RentalRepository; import
+ * com.brickbuster.repository.VideoGameRepository; import
  * com.brickbuster.util.RentalStatus; import
  * com.brickbuster.util.MembershipLevel;
- * 
- * 
- * 
- * 
  * 
  * public class RentalService {
  * 
@@ -31,14 +28,14 @@
  * 
  * @Autowired private MovieRepository movieRepo;
  * 
+ * @Autowired private VideoGameRepository videoGameRepo;
  * 
  * public Rental submitNewMovieOrder(Set<Long> movieId, Long memberId) throws
  * Exception { try { Member member = memberRepo.findById(memberId).get(); Rental
  * rental = initializeNewMovieOrder(movieId, member); return repo.save(rental);
  * } catch (Exception e) { logger.
- * error("Exception occurred while trying to create new rental for customer: "+
+ * error("Exception occurred while trying to create new rental for customer: " +
  * memberId, e); throw e; } }
- * 
  * 
  * private Rental initializeNewMovieOrder(Set<Long> movieId, Member member) {
  * Rental rental = new Rental();
@@ -49,34 +46,55 @@
  * member.getMembershipLevel())); rental.setStatus(RentalStatus.RENTED);
  * addRentalToMovie(rental); return rental; }
  * 
- * private void addRentalToMovie(Rental rental) { Set<Movie> movies =
- * rental.getMovies(); for (Movie movie : movies) {
- * movie.getRentals().add(rental); } }
- * 
- * 
  * private Set<Movie> convertToMovieSet(Iterable<Movie> Id) {
  * 
  * Set<Movie> set = new HashSet<Movie>(); for (Movie movie : Id) {
  * set.add(movie); }
  * 
+ * return null; }
  * 
- * return null; } private Set<VideoGame>
- * convertToVideoGameSet(Iterable<VideoGame> findAllById) { // TODO
- * Auto-generated method stub return null; }
+ * private Set<VideoGame> convertToVideoGameSet(Iterable<VideoGame> Id) {
  * 
+ * Set<VideoGame> set = new HashSet<VideoGame>(); for (VideoGame videogame : Id)
+ * { set.add(videogame); }
+ * 
+ * return null; }
  * 
  * public Rental submitNewVideoGameOrder(Set<Long> videoGameId, Long memberId)
  * throws Exception { try { Member member = memberRepo.findById(memberId).get();
  * Rental rental = initializeNewVideoGameOrder(videoGameId, member); return
  * repo.save(rental); } catch (Exception e) { logger.
- * error("Exception occurred while trying to create new rental for customer: "+
+ * error("Exception occurred while trying to create new rental for customer: " +
  * memberId, e); throw e; } }
- * 
  * 
  * private Rental initializeNewVideoGameOrder(Set<Long> videoGameId, Member
  * member) {
  * 
- * return null; }
+ * Rental rental = new Rental();
+ * rental.setVideoGames(convertToVideoGameSet(videoGameRepo.findAllById(
+ * videoGameId))); rental.setDateDue(LocalDate.now().minusDays(DAYS_UNTIL_DUE));
+ * rental.setMembers(member);
+ * rental.setInvoiceAmount(calculateVideoGameTotal(rental.getVideoGames(),
+ * member.getMembershipLevel())); rental.setStatus(RentalStatus.RENTED);
+ * addRentalToVideoGame(rental); return rental;
+ * 
+ * }
+ * 
+ * private void addRentalToVideoGame(Rental rental) { Set<VideoGame> videoGames
+ * = rental.getVideoGames(); for (VideoGame videogame : videoGames) {
+ * videogame.getRentals().add(rental);
+ * 
+ * } }
+ * 
+ * private void addRentalToMovie(Rental rental) { Set<Movie> movies =
+ * rental.getMovies(); for (Movie movie : movies) {
+ * movie.getRentals().add(rental); } }
+ * 
+ * private double calculateVideoGameTotal(Set<VideoGame> videoGames,
+ * MembershipLevel level) { double VGtotal = 0; for (VideoGame videogame :
+ * videoGames) { VGtotal += videogame.getPrice(); }
+ * 
+ * return VGtotal - VGtotal * level.getDiscount(); }
  * 
  * 
  * private double calculateMovieTotal(Set<Movie> movies, MembershipLevel level)
@@ -85,26 +103,8 @@
  * 
  * return Mtotal - Mtotal * level.getDiscount(); }
  * 
- * 
  * // ,Set<VideoGame> videogames, // for (VideoGame videogame : videogames) { //
- * total += videogame.getPrice(); //}
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ * total += videogame.getPrice(); // }
  * 
  * }
  */
