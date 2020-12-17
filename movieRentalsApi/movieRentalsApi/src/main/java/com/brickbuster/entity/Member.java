@@ -25,7 +25,7 @@ public class Member {
 		return memberId;
 	}
 
-	public void setmemberId(Long memberId) {
+	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
 	}
 

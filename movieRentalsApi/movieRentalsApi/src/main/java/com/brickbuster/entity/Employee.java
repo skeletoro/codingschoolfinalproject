@@ -1,6 +1,5 @@
 package com.brickbuster.entity;
 
-
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -9,16 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.brickbuster.util.CommissionLevel;
+
 @Entity
 public class Employee {
-	
+
 	private Long employeeId;
 	private String firstName;
 	private String lastName;
-	private String commissionLevel;
+	private CommissionLevel commissionLevel;
 	private Set<Rental> rentals;
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getemployeeId() {
@@ -28,7 +28,7 @@ public class Employee {
 	public void setemployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -45,11 +45,11 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public String getCommissionLevel() {
+	public CommissionLevel getCommissionLevel() {
 		return commissionLevel;
 	}
 
-	public void setCommissionLevel(String commissionLevel) {
+	public void setCommissionLevel(CommissionLevel commissionLevel) {
 		this.commissionLevel = commissionLevel;
 	}
 
@@ -61,11 +61,5 @@ public class Employee {
 	public void setRentals(Set<Rental> rentals) {
 		this.rentals = rentals;
 	}
-	
-	
-	
-	
-
-	
 
 }
