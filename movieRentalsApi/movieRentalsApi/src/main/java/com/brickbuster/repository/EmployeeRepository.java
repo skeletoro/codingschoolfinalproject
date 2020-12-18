@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.brickbuster.entity.Employee;
 
-public interface EmployeeRepository extends CrudRepository <Employee, Long> {
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
 }

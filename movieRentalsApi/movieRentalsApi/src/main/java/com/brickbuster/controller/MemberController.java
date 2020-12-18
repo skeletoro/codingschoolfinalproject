@@ -47,23 +47,13 @@ public class MemberController {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateMember(@RequestBody Member member, @PathVariable Long id) {
+		try {
+			return new ResponseEntity<Object>(service.updateMember(id, member), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
 }
-
-//	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//	public ResponseEntity<Object> updateMember(@RequestBody Member member, @PathVariable Long id) {
-//		try {
-//			return new ResponseEntity<Object>(service.updateMember(member, id), HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
-//		}
-//	}
-//}
-
-//	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//	public String updateFirstName(@PathVariable Long id, @RequestBody String newFirstName) {
-//		try {
-//			return new ResponseEntity<String> (service.updateMemberFirstName(id, newFirstName), HttpStatus.OK);
-//		} catch (Exception e) {
-//			return String (e.getMessage(), HttpStatus.NOT_FOUND);
-//		}
-//	}

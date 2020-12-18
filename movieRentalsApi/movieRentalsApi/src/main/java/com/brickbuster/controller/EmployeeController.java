@@ -48,4 +48,13 @@ public class EmployeeController {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateEmployee(@RequestBody Employee employee, @PathVariable Long id) {
+		try {
+			return new ResponseEntity<Object>(service.updateEmployee(id, employee), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
+		}
+	}
 }

@@ -1,7 +1,5 @@
 package com.brickbuster.service;
 
-import java.util.Optional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +41,25 @@ public class MemberService {
 			throw new Exception("Unable to delete member.");
 		}
 	}
-}
-	
 
+	public Member updateMember(Long id, Member member) throws Exception {
+		Member oldMember = repo.findById(id).get();
+		try {
+			if (member.getFirstName() != null) {
+				oldMember.setFirstName(member.getFirstName());
+			}
+
+			else if (member.getLastName() != null) {
+				oldMember.setLastName(member.getLastName());
+			}
+
+			else if (member.getMembershipLevel() != null) {
+				oldMember.setMembershipLevel(member.getMembershipLevel());
+			}
+			return repo.save(oldMember);
+		} catch (Exception e) {
+			Logger.error("Exception occurred while trying to update member: " + id, e);
+			throw new Exception("Unable to update member.");
+		}
+	}
+}

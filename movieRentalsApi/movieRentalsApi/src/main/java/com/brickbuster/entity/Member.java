@@ -12,13 +12,13 @@ import com.brickbuster.util.MembershipLevel;
 
 @Entity
 public class Member {
-	
+
 	private Long memberId;
 	private String firstName;
 	private String lastName;
 	private MembershipLevel membershipLevel;
 	private Set<Rental> rentals;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getmemberId() {
