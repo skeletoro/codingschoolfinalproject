@@ -18,14 +18,15 @@ public class Employee {
 	private String lastName;
 	private CommissionLevel commissionLevel;
 	private Set<Rental> rentals;
+	private Set<Commission> commissions;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getemployeeId() {
+	public Long getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setemployeeId(Long employeeId) {
+	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -61,5 +62,14 @@ public class Employee {
 	public void setRentals(Set<Rental> rentals) {
 		this.rentals = rentals;
 	}
+
+//	@OneToMany(mappedBy = "employeeId")
+//	public Set<Commission> getCommissions() {
+//		return commissions;
+//	}
+//
+//	public void setCommissions(Set<Commission> commissions) {
+//		this.commissions = commissions;
+//	}
 
 }

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.brickbuster.entity.Rental;
 
-@NoRepositoryBean
 public interface RentalRepository extends CrudRepository<Rental, Long>{
 
 }

@@ -1,5 +1,6 @@
 package com.brickbuster.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.brickbuster.service.VideoGameService;
 @RequestMapping("/videoGames")
 public class VideoGameController {
 
+	@Autowired
 	private VideoGameService service;
 
 	@RequestMapping(method = RequestMethod.POST)

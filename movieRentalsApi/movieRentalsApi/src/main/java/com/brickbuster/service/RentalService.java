@@ -7,17 +7,21 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.brickbuster.entity.Member;
 import com.brickbuster.entity.Movie;
 import com.brickbuster.entity.Rental;
 import com.brickbuster.entity.VideoGame;
 import com.brickbuster.repository.MemberRepository;
-import com.brickbuster.repository.MovieRepository;
 import com.brickbuster.repository.RentalRepository;
+import com.brickbuster.repository.MovieRepository;
 import com.brickbuster.repository.VideoGameRepository;
+
 import com.brickbuster.util.RentalStatus;
 import com.brickbuster.util.MembershipLevel;
 
+@Service
 public class RentalService {
 
 	private static final Logger logger = LogManager.getLogger(RentalService.class);
@@ -60,6 +64,7 @@ public class RentalService {
 	private Rental initializeNewMovieRental(Set<Long> movieId, Member member) {
 		Rental rental = new Rental();
 		rental.setMovies(convertToMovieSet(movieRepo.findAllById(movieId)));
+		rental.setDateRented(LocalDate.now());
 		rental.setDateDue(LocalDate.now().minusDays(DAYS_UNTIL_DUE));
 		rental.setMembers(member);
 		rental.setInvoiceAmount(calculateMovieTotal(rental.getMovies(), member.getMembershipLevel()));
@@ -75,7 +80,7 @@ public class RentalService {
 			set.add(movie);
 		}
 
-		return null;
+		return set;
 	}
 
 	private Set<VideoGame> convertToVideoGameSet(Iterable<VideoGame> Id) {
@@ -85,13 +90,13 @@ public class RentalService {
 			set.add(videogame);
 		}
 
-		return null;
+		return set;
 	}
 
-	public Rental submitNewVideoGameRental(Set<Long> videoGameId, Long memberId) throws Exception {
+	public Rental submitNewVideoGameRental(Set<Long> videoGameIds, Long memberId) throws Exception {
 		try {
 			Member member = memberRepo.findById(memberId).get();
-			Rental rental = initializeNewVideoGameRental(videoGameId, member);
+			Rental rental = initializeNewVideoGameRental(videoGameIds, member);
 			return repo.save(rental);
 		} catch (Exception e) {
 			logger.error("Exception occurred while trying to create new rental for customer: " + memberId, e);
@@ -108,10 +113,11 @@ public class RentalService {
 			throw new Exception("Unable to update Rental.");
 		}
 	}
-	private Rental initializeNewVideoGameRental(Set<Long> videoGameId, Member member) {
+	private Rental initializeNewVideoGameRental(Set<Long> videoGameIds, Member member) {
 
 		Rental rental = new Rental();
-		rental.setVideoGames(convertToVideoGameSet(videoGameRepo.findAllById(videoGameId)));
+		rental.setVideoGames(convertToVideoGameSet(videoGameRepo.findAllById(videoGameIds)));
+		rental.setDateRented(LocalDate.now());
 		rental.setDateDue(LocalDate.now().minusDays(DAYS_UNTIL_DUE));
 		rental.setMembers(member);
 		rental.setInvoiceAmount(calculateVideoGameTotal(rental.getVideoGames(), member.getMembershipLevel()));
