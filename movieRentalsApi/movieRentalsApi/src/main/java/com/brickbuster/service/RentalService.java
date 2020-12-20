@@ -65,7 +65,7 @@ public class RentalService {
 		Rental rental = new Rental();
 		rental.setMovies(convertToMovieSet(movieRepo.findAllById(movieId)));
 		rental.setDateRented(LocalDate.now());
-		rental.setDateDue(LocalDate.now().minusDays(DAYS_UNTIL_DUE));
+		rental.setDateDue(LocalDate.now().plusDays(DAYS_UNTIL_DUE));
 		rental.setMembers(member);
 		rental.setInvoiceAmount(calculateMovieTotal(rental.getMovies(), member.getMembershipLevel()));
 		rental.setStatus(RentalStatus.RENTED);
@@ -118,7 +118,7 @@ public class RentalService {
 		Rental rental = new Rental();
 		rental.setVideoGames(convertToVideoGameSet(videoGameRepo.findAllById(videoGameIds)));
 		rental.setDateRented(LocalDate.now());
-		rental.setDateDue(LocalDate.now().minusDays(DAYS_UNTIL_DUE));
+		rental.setDateDue(LocalDate.now().plusDays(DAYS_UNTIL_DUE));
 		rental.setMembers(member);
 		rental.setInvoiceAmount(calculateVideoGameTotal(rental.getVideoGames(), member.getMembershipLevel()));
 		rental.setStatus(RentalStatus.RENTED);
