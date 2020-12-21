@@ -45,7 +45,15 @@ public class RentalController {
 		return new ResponseEntity<Object>(service.getRentals(), HttpStatus.OK);
 	}
 	
-
+	@RequestMapping(value = "/{rentalId}", method = RequestMethod.DELETE)
+	public ResponseEntity<Object> deleteRental(@PathVariable Long rentalId) {
+		try {
+			service.removeRental(rentalId);
+			return new ResponseEntity<Object>("Successfully deleted rental with id: " + rentalId, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Object>("Unable to delete rental.", HttpStatus.BAD_REQUEST);
+		}
+	}
 
 //	@RequestMapping(value = "/{rentalId}", method = RequestMethod.PUT)
 //	public ResponseEntity<Object> UpdateRental(@RequestBody Rental rental, @PathVariable Long rentalId) {

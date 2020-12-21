@@ -179,9 +179,15 @@ public class RentalService {
 		return repo.findAll();
 	}
 
+	public void removeRental(Long rentalId) throws Exception {
+		try {
+			repo.deleteById(rentalId);
+
+		} catch (Exception e) {
+			logger.error("Exception occured while trying to delete rental: " + rentalId, e);
+			throw new Exception("Unable to delete rental.");
+		}
+
+	}
 }
 
-//	,Set<VideoGame> videogames,
-//	for (VideoGame videogame : videogames) {
-//		total += videogame.getPrice();
-// }
