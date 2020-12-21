@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.brickbuster.entity.Employee;
 import com.brickbuster.entity.Member;
 import com.brickbuster.entity.Movie;
 import com.brickbuster.entity.Rental;
@@ -50,12 +51,13 @@ public class RentalService {
 			throw e;
 		}
 	}
+
 	public Rental cancelMovieRental(Long rentalId) throws Exception {
 		try {
 			Rental rental = repo.findById(rentalId).get();
 			rental.setStatus(RentalStatus.RETURNED);
 			return repo.save(rental);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error("Exception occurred while trying to cancel rental: " + rentalId, e);
 			throw new Exception("Unable to update Rental.");
 		}
@@ -103,16 +105,18 @@ public class RentalService {
 			throw e;
 		}
 	}
+
 	public Rental cancelVideoGameRental(Long rentalId) throws Exception {
 		try {
 			Rental rental = repo.findById(rentalId).get();
 			rental.setStatus(RentalStatus.RETURNED);
 			return repo.save(rental);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error("Exception occurred while trying to cancel rental: " + rentalId, e);
 			throw new Exception("Unable to update Rental.");
 		}
 	}
+
 	private Rental initializeNewVideoGameRental(Set<Long> videoGameIds, Member member) {
 
 		Rental rental = new Rental();
@@ -132,7 +136,7 @@ public class RentalService {
 		for (VideoGame videogame : videoGames) {
 			videogame.getRentals().add(rental);
 
-	}
+		}
 	}
 
 	private void addRentalToMovie(Rental rental) {
@@ -150,7 +154,6 @@ public class RentalService {
 
 		return VGtotal - VGtotal * level.getDiscount();
 	}
-	
 
 	private double calculateMovieTotal(Set<Movie> movies, MembershipLevel level) {
 		double Mtotal = 0;
@@ -160,6 +163,7 @@ public class RentalService {
 
 		return Mtotal - Mtotal * level.getDiscount();
 	}
+
 	public Rental completeRental(Long rentalId) throws Exception {
 		try {
 			Rental rental = repo.findById(rentalId).get();
@@ -170,9 +174,14 @@ public class RentalService {
 			throw new Exception("Unable to update rental.");
 		}
 	}
+
+	public Iterable<Rental> getRentals() {
+		return repo.findAll();
+	}
+
+}
+
 //	,Set<VideoGame> videogames,
 //	for (VideoGame videogame : videogames) {
 //		total += videogame.getPrice();
-	// }
-
-}
+// }

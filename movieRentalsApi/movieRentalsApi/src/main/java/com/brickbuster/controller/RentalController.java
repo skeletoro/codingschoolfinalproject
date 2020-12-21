@@ -22,15 +22,6 @@ public class RentalController {
 	@Autowired
 	private RentalService service;
 	
-//	@RequestMapping(method = RequestMethod.POST)
-//	public ResponseEntity<Object> createRental(@RequestBody Set<Long> movieIds,@RequestBody Set<Long> videoGameIds, @PathVariable Long id) {
-//		try {
-//			return new ResponseEntity<Object>(service.submitNewMovieRental(movieIds, id), HttpStatus.CREATED);
-//		} catch (Exception e) {
-//			return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
-//		}
-//	}
-
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
 	public ResponseEntity<Object> createNewMovieRental(@RequestBody Set<Long> movieIds, @PathVariable Long id) {
 		try {
@@ -48,6 +39,13 @@ public class RentalController {
 			return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Object> getRentalsbyMember() {
+		return new ResponseEntity<Object>(service.getRentals(), HttpStatus.OK);
+	}
+	
+
 
 //	@RequestMapping(value = "/{rentalId}", method = RequestMethod.PUT)
 //	public ResponseEntity<Object> UpdateRental(@RequestBody Rental rental, @PathVariable Long rentalId) {
