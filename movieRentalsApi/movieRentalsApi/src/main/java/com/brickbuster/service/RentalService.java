@@ -164,13 +164,13 @@ public class RentalService {
 		return Mtotal - Mtotal * level.getDiscount();
 	}
 
-	public Rental completeRental(Long rentalId) throws Exception {
+	public Rental returnRental(Long rentalId) throws Exception {
 		try {
 			Rental rental = repo.findById(rentalId).get();
-			rental.setStatus(RentalStatus.RENTED);
+			rental.setStatus(RentalStatus.RETURNED);
 			return repo.save(rental);
 		} catch (Exception e) {
-			logger.error("Exception occurred while trying to complete rental: " + rentalId, e);
+			logger.error("Exception occurred while trying to return rental: " + rentalId, e);
 			throw new Exception("Unable to update rental.");
 		}
 	}
