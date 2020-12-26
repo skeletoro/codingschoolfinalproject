@@ -2,7 +2,7 @@
 
 <h4>DESCRIPTION</h4>
 
-This is an application programming interface that is made to replicate the classic brick and mortar movie rental store front.
+This is an application programming interface made to replicate the classic brick and mortar movie rental store front.
 
 When interfacing with the application, employees for our fictitious store known as Brickbuster can add new movie and video game entries into the database. These articles can be subsequently rented out to members in the system, thereby creating a new rental record in the database. The rental record includes the rental date, the date the rental is due back, a list of the movies or video games rented, and also calculates the invoice total. Each member is assigned a subscription level when they sign up and are allotted a discount based on their membership tier: BASIC, GOLD, or SUPERSTAR. The database also holds records for employees of the rental store. 
 
@@ -16,7 +16,7 @@ The application is written in Java, with a connection to a database where the da
  - Rentals
 
 <h4>FUNCTIONALITY</H4>
-Postman is used to send HTTP requests to the database to perform the functions described above.
+Postman is used to send HTTP requests to the database to perform the functions described above. Some examples:
 
 <h6>CREATE A NEW EMPLOYEE RECORD</h6>
 
