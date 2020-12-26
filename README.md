@@ -24,7 +24,7 @@ Postman is used to send HTTP requests to the database to perform the functions d
 
 <h6>DELETE A VIDEO GAME RECORD</h6>
 
-![Screenshot](!!!folder location here!!!)
+![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Delete%20Video%20Game.jpg)
 
 <h6>DISPLAY ALL RENTALS IN DATABASE</h6>
 
