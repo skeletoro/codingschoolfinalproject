@@ -15,13 +15,25 @@ The application is written in Java, with a connection to a database where the da
  - VideoGames
  - Rentals
 
+<h4>FUNCTIONALITY</H4>
 Postman is used to send HTTP requests to the database to perform the functions described above.
 
+<h6>CREATE A NEW EMPLOYEE RECORD</h6>
+
+![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Create%20Employee.jpg)
+
+<h6>DELETE A VIDEO GAME RECORD</h6>
+
 ![Screenshot](!!!folder location here!!!)
 
-DISPLAY ALL RENTALS IN DATABASE
+<h6>DISPLAY ALL RENTALS IN DATABASE</h6>
 
-![Screenshot](!!!folder location here!!!)
+![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Get%20Rentals.jpg)
+
+<h6>UPDATE A RENTAL STATUS</h6>
+
+![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Update%20Rental.jpg)
+
 
 <h4> FUTURE DEVELOPMENT </h4>
 Future improvements include the ability to assign a commission for the employee that generates a rental. Each employee is currently assigned a commission level when added to the employee table: ENTRYLEVEL, INTERMEDIATE, or SENIOR. A commissions entity has been created, but the functionality to generate the commission for each rental has yet to be implemented.
