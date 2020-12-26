@@ -1,32 +1,21 @@
-# codingschoolfinalproject
-gateway promineo tech final project
+# Brickbuster Classic Video and Video Game Rentals API 
 
-DESCRIPTION
+<h4>DESCRIPTION</h4>
 
-This is a menu-driven application that is made to replicate the classic nominal movie storefront.
-Using the Menu, employees for our fictious store none as brickbuster can interact with entering new movie and 
-video game based entries. And also subsequently rent them out to new members as they are called in our system.
-based on the new members subscription level they sign up for they are also allotted a discount based on the tier 
-selected from the selections: basic, gold, and superstar.
+This is an application programming interface that is made to replicate the classic movie store front.
 
-the functions this menu can accomplish are
-
-Read, create, update, and delete records for:
-
-•	Employees
-
-•	Members
-
-•	Rentals
-
-•	Movies
-
-•	VideoGames
+When interfacing with the application, employees for our fictitious store known as Brickbuster can add new movie and video game entries into the database. These articles can be subsequently rented out to members in the system, thereby creating a new rental record in the database. Each member is assigned a subscription level when they sign up and are allotted a discount based on their membership tier: BASIC, GOLD, or SUPERSTAR. The database also holds records for employees. 
 
 
-The application is written in Java, with a connection to a database where the data is stored.
+The application is written in Java, with a connection to a database where the data is stored. The database was created using Hibernate and is used to read, create, update, and delete records for the following entities:
 
-MENU
+ - Employees
+ - Members
+ - Movies
+ - VideoGames
+ - Rentals
+
+Postman is used to send HTTP requests to the database to perform the functions described above.
 
 ![Screenshot](!!!folder location here!!!)
 
@@ -34,17 +23,17 @@ DISPLAY ALL RENTALS IN DATABASE
 
 ![Screenshot](!!!folder location here!!!)
 
+<h4> FUTURE DEVELOPMENT </h4>
+Future improvements include the ability to assign a commission for the employee that generates a rental. Each employee is currently assigned a commission level when added to the employee table: ENTRYLEVEL, INTERMEDIATE, or SENIOR. A commissions entity has been created, but the functionality to generate the commission for each rental has yet to be implemented.
 
-This application was created as a team project for a bootcamp covering Java and MySQL and SpringBoot 2.0. 
+<h4> PROJECT REQUIREMENTS </h4>
+This application was created as a team project for the Promineo Tech Boot Camp final project. The bootcamp covered Java, MySQL, and SpringBoot 2.0. 
 The project requirements are below.
 
-    Contain at least 5 entities
+- Contain at least five entities
+- Contain all CRUD operations
+- Contain at least one one-to-many relationship
+- Contain at least one many-to-many relationship
+- Contain different application layers, including at least controller, service, and repository
 
-    Contain all CRUD operations
-
-    Contain at least 1 one-to-many relationship
-
-    Contain at least 1 many-to-many relationship
-
-    Contain different application layers including at least controller, service, and repository.
-
+ 

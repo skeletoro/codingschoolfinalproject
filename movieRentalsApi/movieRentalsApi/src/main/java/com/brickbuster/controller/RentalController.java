@@ -43,12 +43,12 @@ public class RentalController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Object> getAllRentals() {
 		try {
-		return new ResponseEntity<Object>(service.getRentals(), HttpStatus.OK);
+			return new ResponseEntity<Object>(service.getRentals(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Object>(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@RequestMapping(value = "/{rentalId}", method = RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteRental(@PathVariable Long rentalId) {
 		try {
@@ -62,7 +62,7 @@ public class RentalController {
 	@RequestMapping(value = "/{rentalId}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateRental(@RequestBody Rental rental, @PathVariable Long rentalId) {
 		try {
-			if(rental.getStatus().equals(RentalStatus.RETURNED));
+			if (rental.getStatus().equals(RentalStatus.RETURNED));
 			return new ResponseEntity<Object>(service.returnRental(rentalId), HttpStatus.OK);
 
 		} catch (Exception e) {

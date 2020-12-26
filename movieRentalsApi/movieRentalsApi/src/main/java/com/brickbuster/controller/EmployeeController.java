@@ -22,7 +22,11 @@ public class EmployeeController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Object> createEmployee(@RequestBody Employee employee) {
-		return new ResponseEntity<Object>(service.createEmployee(employee), HttpStatus.CREATED);
+		try {
+			return new ResponseEntity<Object>(service.createEmployee(employee), HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<Object>("Unable to create employee.", HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
