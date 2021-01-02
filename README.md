@@ -16,8 +16,110 @@ The application is written in Java, with a connection to a database where the da
  - Rentals
 
 <h4>FUNCTIONALITY</H4>
-Postman is used to send HTTP requests to the database to perform the functions described above. Some examples:
+Postman is used to send HTTP requests to the database to perform the functions described above. 
 
+<h5>Rentals</h5>
+
+<h6>1. Create a new movie rental record </h6>
+
+	POST: /rentals/movies/members/{memberId}
+
+<h6>2. Create a new video game rental record </h6>
+
+	POST: /rentals/videogames/members/{memberId}
+
+<h6>3. Access a list of all rental records </h6>
+
+	GET: /rentals
+	
+<h6>4. Update the status of a rental</h6>
+
+	POST: /rentals/{rentalId}
+	
+<h6>5. Delete a rental</h6>
+
+	DELETE: /rentals/{rentalId}
+
+<h5>Movies</h5>
+	
+<h6>1. Create a new movie record</h6>
+
+	POST: /movies
+	
+<h6>2. Access a list of all movie records and their information </h6>
+
+	GET: /movies
+	
+<h6>3. Update a movie record</h6>
+
+	PUT: /movies/{movieId}
+	
+<h6>4. Delete a movie record</h6>
+
+	DELETE: /movies/{movieId}
+	
+<h5>Video Games</h5>
+	
+<h6>1. Create a new videoGame record </h6>
+
+	POST: /videoGames
+	
+<h6>2. Access a list of all video game records and their information </h6>
+
+	GET: /videoGames
+	
+<h6>3. Update a video game record</h6>
+
+	PUT: /videoGames/{videoGameId}
+	
+<h6>4. Delete a video game record</h6>
+
+	DELETE: /videoGames/{videoGameId}	
+	
+<h5>Members</h5>
+	
+<h6>1. Create a new member </h6>
+
+	POST: /members
+	
+<h6>2. Access a specific member's information </h6>
+	
+	GET: /members/{memberId}
+	
+<h6>3. Access a list of all members' information </h6>
+
+	GET: /members
+	
+<h6>4. Update a member</h6>
+
+	PUT: /members/{memberId}
+	
+<h6>5. Delete a member</h6>
+
+	DELETE: /members/{memberId}	
+	
+<h5>Employees</h5>
+	
+<h6>1. Create a new employee </h6>
+
+	POST: /employees
+	
+<h6>2. Access a specific employee's information </h6>
+	
+	GET: /employees/{employeeId}
+	
+<h6>3. Access a list of all employees' information </h6>
+
+	GET: /employees
+	
+<h6>4. Update an employee</h6>
+
+	PUT: /employees/{employeeId}
+	
+<h6>5. Delete an employee</h6>
+
+	DELETE: /employees/{employeeId}
+	
 <h6>CREATE A NEW EMPLOYEE RECORD</h6>
 
 ![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Create%20Employee.jpg)
