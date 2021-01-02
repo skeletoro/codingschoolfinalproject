@@ -120,22 +120,23 @@ Postman is used to send HTTP requests to the database to perform the functions d
 
 	DELETE: /employees/{employeeId}
 	
-<h6>CREATE A NEW EMPLOYEE RECORD</h6>
+<h5>POSTMAN SCREEN SHOT EXAMPLES</h5>
+
+<h6>Create an employee</h6>
 
 ![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Create%20Employee.jpg)
 
-<h6>DELETE A VIDEO GAME RECORD</h6>
+<h6>Delete a video game record</h6>
 
 ![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Delete%20Video%20Game.jpg)
 
-<h6>DISPLAY ALL RENTALS IN DATABASE</h6>
+<h6>Display all rental records in database</h6>
 
 ![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Get%20Rentals.jpg)
 
-<h6>UPDATE A RENTAL STATUS</h6>
+<h6>Update a rental status</h6>
 
 ![Screenshot](https://github.com/skeletoro/codingschoolfinalproject/blob/main/Screen%20Shots/Update%20Rental.jpg)
-
 
 <h4> FUTURE DEVELOPMENT </h4>
 Future improvements include the ability to assign a commission for the employee that generates a rental. Each employee is currently assigned a commission level when added to the employee table: ENTRYLEVEL, INTERMEDIATE, or SENIOR. A commissions entity has been created, but the functionality to generate the commission for each rental has yet to be implemented.
