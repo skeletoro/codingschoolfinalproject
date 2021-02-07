@@ -18,6 +18,235 @@ The application is written in Java, with a connection to a database where the da
 <h4>FUNCTIONALITY</H4>
 Postman is used to send HTTP requests to the database to perform the functions described above. 
 
+<table width="708">
+<tbody>
+<tr>
+<td width="366">
+<p><strong>RENTALS</strong></p>
+</td>
+<td width="342">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: /rentals/movies/members/{memberId}</p>
+</td>
+<td width="342">
+<p>Create a new movie rental record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: /rentals/videogames/members/{memberId}</p>
+</td>
+<td width="342">
+<p>Create a new video game rental record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /rentals</p>
+</td>
+<td width="342">
+<p>Access a list of all rental records</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>PUT: /rentals/{rentalId}</p>
+</td>
+<td width="342">
+<p>Update the status of a rental</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>DELETE: /rentals/{rentalId}</p>
+</td>
+<td width="342">
+<p>Delete a rental</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p><strong>MOVIES</strong></p>
+</td>
+<td width="342">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: /movies</p>
+</td>
+<td width="342">
+<p>Create a new movie record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /movies</p>
+</td>
+<td width="342">
+<p>Access a list of all movie records and their information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>PUT: /movies/{movieId}</p>
+</td>
+<td width="342">
+<p>Update a movie record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>DELETE: /movies/{movieId}</p>
+</td>
+<td width="342">
+<p>Delete a movie record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p><strong>VIDEO GAMES</strong></p>
+</td>
+<td width="342">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: /videoGames</p>
+</td>
+<td width="342">
+<p>Create a new video game record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /videoGames</p>
+</td>
+<td width="342">
+<p>Access a list of all video game records and their information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>PUT: /videoGames/{videoGameId}</p>
+</td>
+<td width="342">
+<p>Update a video game record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>DELETE: /videoGames/{videoGameId}</p>
+</td>
+<td width="342">
+<p>Delete a video game record</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p><strong>MEMBERS</strong></p>
+</td>
+<td width="342">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: /members</p>
+</td>
+<td width="342">
+<p>Create a new member</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /members/{memberId}</p>
+</td>
+<td width="342">
+<p>Access a specific member&rsquo;s information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /members</p>
+</td>
+<td width="342">
+<p>Access a list of all members&rsquo; information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>PUT: /members/{memberId}</p>
+</td>
+<td width="342">
+<p>Update a member</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>DELETE: /members/{memberId}</p>
+</td>
+<td width="342">
+<p>Delete a member</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p><strong>EMPLOYEES</strong></p>
+</td>
+<td width="342">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>POST: / employees</p>
+</td>
+<td width="342">
+<p>Create a new employee</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /employees/{employeeId}</p>
+</td>
+<td width="342">
+<p>Access a specific employee&rsquo;s information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>GET: /employees</p>
+</td>
+<td width="342">
+<p>Access a list of all employees&rsquo; information</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>PUT: /employees/{employeeId}</p>
+</td>
+<td width="342">
+<p>Update an employee</p>
+</td>
+</tr>
+<tr>
+<td width="366">
+<p>DELETE: /employees/{employeeId}</p>
+</td>
+<td width="342">
+<p>Delete an employee</p>
+</td>
+</tr>
+</tbody>
+</table>
+
 <h5>Rentals</h5>
 
 <h6>1. Create a new movie rental record </h6>
